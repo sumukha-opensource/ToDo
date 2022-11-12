@@ -14,6 +14,9 @@
     <string name="add">Add</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="frag_list">ToDo List</string>
+    <string name="frag_add">Add</string>
+    <string name="frag_update">Update</string>
 
     <string-array name="priorities">
         <item>High Priority</item>
