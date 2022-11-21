@@ -1,4 +1,4 @@
-package com.ksa.todo.models
+package com.ksa.todo.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

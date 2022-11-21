@@ -2,7 +2,7 @@ package com.ksa.todo.data.repository
 
 import androidx.lifecycle.LiveData
 import com.ksa.todo.data.ToDoDao
-import com.ksa.todo.models.ToDoData
+import com.ksa.todo.data.models.ToDoData
 
 class ToDoRepository(private val toDoDao: ToDoDao) {
 

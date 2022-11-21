@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.ksa.todo.models.ToDoData
+import com.ksa.todo.data.models.ToDoData
 
 @Database(entities = [ToDoData::class], version = 1, exportSchema = false)
 @TypeConverters(Converter::class)
