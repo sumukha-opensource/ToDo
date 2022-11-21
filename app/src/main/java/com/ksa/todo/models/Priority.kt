@@ -1,4 +1,4 @@
-package com.ksa.todo.data
+package com.ksa.todo.models
 
 enum class Priority {
     HIGH,
