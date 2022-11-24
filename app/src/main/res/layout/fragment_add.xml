@@ -14,7 +14,7 @@
         tools:context=".fragments.add.AddFragment">
 
         <EditText
-            android:id="@+id/personname_editText"
+            android:id="@+id/title_editText"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:ems="10"
@@ -38,7 +38,7 @@
             android:entries="@array/priorities"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personname_editText" />
+            app:layout_constraintTop_toBottomOf="@+id/title_editText" />
 
         <EditText
             android:id="@+id/description_edittext"

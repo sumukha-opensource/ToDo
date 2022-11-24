@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "to_do")
 data class ToDoData(
     @PrimaryKey(autoGenerate = true)
-    var id: String,
+    var id: Int,
     var title: String,
     var priority: Priority,
     var description: String
