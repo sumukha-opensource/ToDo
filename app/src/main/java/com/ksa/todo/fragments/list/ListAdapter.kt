@@ -1,9 +1,9 @@
 package com.ksa.todo.fragments.list
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ksa.todo.R
 import com.ksa.todo.data.models.Priority
@@ -55,6 +55,10 @@ class ListAdapter : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val toDoItem = dataList[position]
         holder.bind(toDoItem)
+        holder.itemView.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(toDoItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

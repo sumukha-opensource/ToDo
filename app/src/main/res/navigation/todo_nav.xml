@@ -9,7 +9,7 @@
         android:id="@+id/listFragment"
         android:name="com.ksa.todo.fragments.list.ListFragment"
         android:label="@string/frag_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment"
@@ -19,13 +19,17 @@
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
             app:destination="@id/updateFragment"
-            app:enterAnim="@anim/from_left" />
+            app:enterAnim="@anim/from_left">
+            <argument
+                android:name="currentItem"
+                app:argType="com.ksa.todo.data.models.ToDoData" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/addFragment"
         android:name="com.ksa.todo.fragments.add.AddFragment"
         android:label="@string/frag_add"
-        tools:layout="@layout/fragment_add" >
+        tools:layout="@layout/fragment_add">
         <action
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment"
@@ -36,9 +40,12 @@
         android:id="@+id/updateFragment"
         android:name="com.ksa.todo.fragments.update.UpdateFragment"
         android:label="@string/frag_update"
-        tools:layout="@layout/fragment_update" >
+        tools:layout="@layout/fragment_update">
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.ksa.todo.data.models.ToDoData" />
     </fragment>
 </navigation>
