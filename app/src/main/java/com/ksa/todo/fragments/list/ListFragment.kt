@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ksa.todo.R
 import com.ksa.todo.data.viewmodel.ToDoViewModel
 import com.ksa.todo.databinding.FragmentListBinding
+import com.ksa.todo.fragments.SharedViewModel
 
 
 /**
@@ -25,14 +26,18 @@ class ListFragment : Fragment() {
     private lateinit var binding: FragmentListBinding
     private val adapter: ListAdapter by lazy { ListAdapter() }
     private val mToDoViewModel: ToDoViewModel by viewModels()
-
+    private val sharedViewModel : SharedViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
+        sharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer{
+            showEmptyDbViews(it)
+        })
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
+            sharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setData(data)
         })
         binding.floatingActionButton.setOnClickListener {
@@ -44,6 +49,16 @@ class ListFragment : Fragment() {
         //https://stackoverflow.com/questions/71917856/sethasoptionsmenuboolean-unit-is-deprecated-deprecated-in-java
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    private fun showEmptyDbViews(emptyDatabase:Boolean) {
+        if(emptyDatabase){
+           binding.nodataTextView.visibility = View.VISIBLE
+           binding.nodataImageView.visibility = View.VISIBLE
+        }else{
+            binding.nodataTextView.visibility = View.INVISIBLE
+            binding.nodataImageView.visibility = View.INVISIBLE
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
